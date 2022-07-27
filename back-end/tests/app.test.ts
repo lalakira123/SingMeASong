@@ -102,6 +102,18 @@ describe('Test all Recomendation Route', () => {
     expect(body).not.toBeNull();
   });
 
+  it('get recommendation by random', async () => {
+    await recommendationFactory.createElevenRecommendations();
+
+    const response = await agent.get('/recommendations/random');
+    expect(response.statusCode).toEqual(200);
+  });
+
+  it('get recommendation by random if doesnt exist any song should return status code 404', async () => {
+    const response = await agent.get('/recommendations/random');
+    expect(response.statusCode).toEqual(404);
+  });
+
   it('get recommendations by top scores', async () => {
     recommendationFactory.createElevenRecommendations();
 
