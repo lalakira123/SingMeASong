@@ -111,7 +111,11 @@ describe('Test all Recomendation Route', () => {
     
     let isRanked = false;
     for(let i = 0; i < body.length - 1; i++){
-      if(body[i].score >= body[i+1].score) isRanked = true;
+      if(body[i].score < body[i+1].score) {
+        isRanked = false 
+        break;
+      }
+      else isRanked = true;
     }
 
     expect(isRanked).toBe(true);
