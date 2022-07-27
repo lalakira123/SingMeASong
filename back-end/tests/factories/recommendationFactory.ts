@@ -33,17 +33,17 @@ async function createRecommendation(recommendation: CreateRecommendationData){
 async function createElevenRecommendations(){
   await prisma.recommendation.createMany({
     data: [
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
-      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'}
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:1},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:2},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:10},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:3},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:22},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:11},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:3},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:4},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:5},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:2},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1', score:13}
     ]
   });
 }

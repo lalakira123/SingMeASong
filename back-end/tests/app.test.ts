@@ -101,6 +101,21 @@ describe('Test all Recomendation Route', () => {
     const {body} = await agent.get(`/recommendations/${recommendationCreated.id}`);
     expect(body).not.toBeNull();
   });
+
+  it('get recommendations by top scores', async () => {
+    recommendationFactory.createElevenRecommendations();
+
+    const amount = faker.random.numeric(1);
+
+    const {body} = await agent.get(`/recommendations/top/${amount}`);
+    
+    let isRanked = false;
+    for(let i = 0; i < body.length - 1; i++){
+      if(body[i].score >= body[i+1].score) isRanked = true;
+    }
+
+    expect(isRanked).toBe(true);
+  });
 });
 
 afterAll(async () => {
