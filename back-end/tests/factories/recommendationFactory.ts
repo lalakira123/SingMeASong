@@ -3,14 +3,14 @@ import { prisma } from './../../src/database.js';
 
 function validRecommendation(){
   return {
-    name: faker.internet.domainName(),
+    name: faker.internet.userName(),
     youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'
   }
 }
 
 function invalidRecommendation(){
   return {
-    name: faker.internet.domainName(),
+    name: faker.internet.userName(),
     youtubeLink: faker.internet.url()
   }
 }
@@ -30,8 +30,26 @@ async function createRecommendation(recommendation: CreateRecommendationData){
   })
 }
 
+async function createElevenRecommendations(){
+  await prisma.recommendation.createMany({
+    data: [
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'},
+      {name: faker.internet.userName(), youtubeLink: 'https://www.youtube.com/watch?v=qpUSqqusmYc&list=RDqpUSqqusmYc&start_radio=1'}
+    ]
+  });
+}
+
 async function findRecommendationByName(name: string){
-  const recommendation = await prisma.recommendation.findUnique({
+  const recommendation = await prisma.recommendation.findFirst({
     where: {
       name
     }
@@ -39,9 +57,16 @@ async function findRecommendationByName(name: string){
   return recommendation;
 }
 
+async function findRecommendations(){
+  const recommendations = await prisma.recommendation.findMany();
+  return recommendations;
+}
+
 export {
   validRecommendation,
   invalidRecommendation,
   createRecommendation,
-  findRecommendationByName
+  createElevenRecommendations,
+  findRecommendationByName,
+  findRecommendations
 }
